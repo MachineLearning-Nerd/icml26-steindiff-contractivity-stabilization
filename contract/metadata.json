@@ -1,0 +1,37 @@
+{
+  "orid": "z0CHTAHame",
+  "submission_number": 2615,
+  "title": "Mitigating the Contractivity Trap in Diffusion ODEs via Stein Stabilization",
+  "area": "Deep Learning",
+  "subarea": "Generative Models And Autoencoders",
+  "openreview": "https://openreview.net/forum?id=z0CHTAHame",
+  "arxiv": "2606.07835",
+  "claims": [
+    {
+      "text": "SteinDiff derives a reference-free, Stein's-identity-based estimator for the MSE-optimal correction coefficient gamma*_k, given by gamma*_k = [(1-1/alpha_k)E[<u_k,x_k>] + (sigma_k^2/alpha_k)E[div(u_k)]] / E[||u_k||^2] (Theorem 4.7).",
+      "status": "unverified"
+    },
+    {
+      "text": "Theorem 4.8 establishes a step-wise error decay bound for SteinDiff-corrected sampling, showing the terminal error satisfies E^0_Stein <= (1-eta)^N * E_N over N inference steps (Theorem 4.8).",
+      "status": "unverified"
+    },
+    {
+      "text": "On LSUN-Bedrooms 256x256 at 5 NFE, SteinDiff reduces FID from a baseline of 21.29 to 7.64 (Table 2).",
+      "status": "unverified"
+    },
+    {
+      "text": "On ImageNet 64x64, SteinDiff yields FID reductions of up to 45.8% relative to baseline solvers, with consistent gains across both DPM-Solver++ and UniPC (Table 2).",
+      "status": "unverified"
+    },
+    {
+      "text": "Algorithm 1 implements the correction using Hutchinson trace estimation for the divergence term and batch-averaged statistics (s_xu, s_uu, s_div), with a clipped coefficient gamma_hat_k bounded below by a minimum threshold gamma_min (Algorithm 1).",
+      "status": "unverified"
+    },
+    {
+      "text": "SteinDiff is evaluated against DPM-Solver++ (including third-order), UniPC, and Heun solvers across CIFAR-10, ImageNet 64x64, and LSUN-Bedrooms 256x256, using FID, IS, and FD-DINOv2 metrics at 5-20 NFE (Experimental Results section).",
+      "status": "unverified"
+    }
+  ],
+  "claim_count": 6,
+  "max_points": 12
+}

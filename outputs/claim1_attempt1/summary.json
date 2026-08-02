@@ -1,0 +1,12 @@
+{
+  "seed": 20260802,
+  "n": 200000,
+  "alpha": 0.8,
+  "sigma": 0.6,
+  "a": 1.7,
+  "direct_gamma_mc": 0.1177678980787842,
+  "stein_gamma_mc": 0.11913436289233231,
+  "absolute_difference": 0.0013664648135481156,
+  "tolerance": 0.01,
+  "pass": true
+}

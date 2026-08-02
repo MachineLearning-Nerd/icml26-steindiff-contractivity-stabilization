@@ -1,0 +1,24 @@
+{
+  "retrieved_at_utc": "2026-08-02T18:33:35.251680+00:00",
+  "openreview_id": "z0CHTAHame",
+  "submission_number": 2615,
+  "title": "Mitigating the Contractivity Trap in Diffusion ODEs via Stein Stabilization",
+  "claim_count": 6,
+  "maximum_points": 12,
+  "snapshot": "outputs/live/20260802T183038Z",
+  "claim_precedence": "claims_anchored.json",
+  "source_urls": {
+    "arxiv_source": "https://export.arxiv.org/e-print/2606.07835",
+    "arxiv_pdf": "https://arxiv.org/pdf/2606.07835"
+  },
+  "sha256": {
+    "index.json": "fdc3074ee5105da8b061146ecf78d927a4266a9841db16ba2b5c747b48727ee0",
+    "claims.json": "6f0984c875e7bc9507a9d3cf738621d22db16bc4c244ed7ceab86d60ecd14e01",
+    "claims_anchored.json": "7c0373fbbfb98b5acdc2c0ac122d9d81431bd6b42dda76fa36a91b49ec4b7825",
+    "challenge_readme.md": "027f66e6da758c4a0d75fff6c9298e5322dde64d21a97d33e4367e42c3a421c5",
+    "metadata.json": "11de81380e41f81c892b7cd3602304b54db21278ede2eb2b570c5e06148aecf9",
+    "live_claims.json": "464597aad1490a0beb6d4dac2c8662386825b6e512f6e6462424224b1c276c45",
+    "arxiv_source.tar.gz": "392b56425f9c7f9e1275c79e971573268637eb384eb3bcb140293259ee100229",
+    "arxiv.pdf": "96b980d93196b1441ec30ec2ec0f695fdde075d8f96dcd39851e181836bd0ca3"
+  }
+}

@@ -1,0 +1,2 @@
+seed,n,alpha,sigma,a,direct_gamma_mc,stein_gamma_mc,absolute_difference,tolerance,pass
+20260802,200000,0.8,0.6,1.7,0.1177678980787842,0.11913436289233231,0.0013664648135481156,0.01,True
