@@ -1,0 +1,3 @@
+Pre-execution Claim-2 toy protocol
+
+Source: Theorem 4.8, example_paper.tex lines 534-633.  Fixed before run: seed=20260802; n=50000 paired 1-D particles; N=4; lambda=.35; candidate noise SD=.25. At each step T(x)=x-lambda*(x-x*)+xi, u=x-T(x), and gamma*=mean(u*(x-x*))/mean(u^2). Primary metrics are the theorem one-step identity E_{k-1}=E_k-b_k^2/c_k, trajectory product, and eta bound. Controls report gamma=1 (vanilla) and -gamma* (wrong-sign), on the same particle/candidate-noise draws. Pass iff every finite-sample identity error <=1e-12, product error <=1e-12, all c_k>0 and 0<=rho_k<=1, and eta bound holds. This is a finite synthetic formula fixture: it is not a learned diffusion model, Algorithm-1 estimator, image/FID result, or universal theorem verification.
