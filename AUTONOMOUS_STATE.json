@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "openreview_id": "z0CHTAHame",
-  "phase": "claim_2_attempt_1_stepwise_error_decay_formula_toy_complete",
-  "next_action": "independent_review_claim_2_toy_against_literal_theorem_then_claim_3_source_audit",
+  "phase": "claim_ledger_documented_before_normalized_publish",
+  "next_action": "independent_review_claim_2_toy_against_literal_source_then_claim_3_source_audit",
   "active_run_ids": [],
   "completed_milestones": [
     "live_duplicate_gate",
@@ -10,7 +10,8 @@
     "source_archive_and_pdf_pinned",
     "claim_1_source_cpu_feasibility_audit",
     "claim_1_attempt_1_reference_free_stein_estimator_fixture",
-    "claim_2_attempt_1_source_faithful_stepwise_error_decay_fixture"
+    "claim_2_attempt_1_source_faithful_stepwise_error_decay_fixture",
+    "readme_claim_ledger_and_branch_inventory"
   ],
   "failed_attempts": [],
   "claim_attempt_counts": {
@@ -21,14 +22,14 @@
     "5": 0,
     "6": 0
   },
-  "last_checkpoint": "2026-08-02T22:55:00Z",
-  "last_known_git_commit": null,
+  "last_checkpoint": "2026-08-12T23:45:00+05:30",
+  "last_known_git_commit": "1c46f01",
   "publication_allowed": false,
   "compute_policy": "local CPU/local GTX 1050 only; no HF cpu-upgrade, Jobs, paid, or remote compute",
-  "selection_rationale": "Anchored six-claim contract; pinned arXiv source directly supplies closed-form Stein identity estimator and a deterministic local CPU formula fixture. Image-generation FID claims are deferred as non-CPU-feasible full benchmarks.",
+  "selection_rationale": "Anchored six-claim contract; pinned arXiv source directly supplies the closed-form Stein identity estimator and deterministic local CPU formula fixtures. Image-generation FID claims are deferred as non-CPU-feasible full benchmarks.",
   "claim_1_outcome": {
     "verdict": "toy",
-    "scope": "Deterministic one-dimensional Gaussian forward-coupling Monte Carlo evaluation of the exact source reference-free gamma formula versus direct MSE-optimal gamma. It preserves the formula and coefficient metric but is not end-to-end SteinDiff sampling/theorem validation.",
+    "scope": "Deterministic one-dimensional Gaussian forward-coupling evaluation of the exact source reference-free gamma formula versus direct MSE-optimal gamma. It preserves the formula and coefficient metric but is not end-to-end SteinDiff sampling or theorem validation.",
     "evidence": [
       "outputs/claim1_attempt1/summary.json",
       "outputs/claim1_attempt1/results.csv",
@@ -38,7 +39,7 @@
   },
   "claim_2_outcome": {
     "verdict": "toy",
-    "scope": "Finite local CPU 1-D paired-particle execution of Theorem 4.8 exact-coefficient one-step MSE identity, trajectory product, and eta bound for a synthetic noisy affine candidate. It is not learned SteinDiff inference or a theorem verification.",
+    "scope": "Finite local CPU one-dimensional paired-particle execution of the source thm:mse_decay algebra: exact-coefficient one-step MSE identity, trajectory product, and eta bound for a synthetic noisy affine candidate. It is not learned SteinDiff inference or theorem verification.",
     "evidence": [
       "outputs/claim2_attempt1/PROTOCOL.md",
       "outputs/claim2_attempt1/SOURCE_MAPPING.md",
