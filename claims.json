@@ -1,0 +1,20 @@
+{
+  "repository": "MachineLearning-Nerd/icml26-steindiff-contractivity-stabilization",
+  "former_repository": "MachineLearning-Nerd/icml26-repro-z0CHTAHame-steindiff-contractivity-trap",
+  "paper": {
+    "title": "Mitigating the Contractivity Trap in Diffusion ODEs via Stein Stabilization",
+    "arxiv": "2606.07835",
+    "openreview": "z0CHTAHame",
+    "authors": ["Shigui Li", "Delu Zeng"]
+  },
+  "overall_verdict": "INCONCLUSIVE_SCOPED_TO_SOURCE_AND_BOUNDED_TOYS",
+  "publication_allowed": false,
+  "claims": [
+    {"id": "C1", "status": "TOY_SOURCE_STEIN_IDENTITY", "evidence": ["outputs/claim1_attempt1"], "producer": "Ideal Gaussian forward coupling plus direct MSE optimum and Stein reference-free formula; finite 1-D fixture only"},
+    {"id": "C2", "status": "TOY_SOURCE_STEPWISE_DECAY_ALGEBRA", "evidence": ["outputs/claim2_attempt1"], "producer": "Exact b/c one-step identity, trajectory product, and eta bound; finite 1-D synthetic candidate only"},
+    {"id": "C3", "status": "UNVERIFIED_PAPER_REPORTED_ONLY", "evidence": ["evidence/source/arxiv_source.tar.gz"], "producer": "LSUN latent diffusion sampling plus generated images and FID at 5 NFE; no local run"},
+    {"id": "C4", "status": "UNVERIFIED_PAPER_REPORTED_ONLY", "evidence": ["evidence/source/arxiv_source.tar.gz"], "producer": "ImageNet 64x64 solver/schedule matrix plus FID/FD-DINOv2; no local run"},
+    {"id": "C5", "status": "SOURCE_SUPPORTED_IMPLEMENTATION_UNVERIFIED", "evidence": ["evidence/source/arxiv_source.tar.gz", "SOURCE_AUDIT.md"], "producer": "Algorithm 1 batch statistics and Hutchinson divergence implementation; no independent high-dimensional module"},
+    {"id": "C6", "status": "SOURCE_SUPPORTED_BENCHMARK_UNVERIFIED", "evidence": ["evidence/source/arxiv_source.tar.gz", "SOURCE_AUDIT.md"], "producer": "CIFAR/ImageNet/LSUN solver and metric protocol; no benchmark matrix"}
+  ]
+}

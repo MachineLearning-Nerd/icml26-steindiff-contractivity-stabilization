@@ -1,8 +1,14 @@
 {
   "schema_version": 1,
   "openreview_id": "z0CHTAHame",
-  "phase": "claim_ledger_documented_before_normalized_publish",
-  "next_action": "independent_review_claim_2_toy_against_literal_source_then_claim_3_source_audit",
+  "github": {
+    "repository": "MachineLearning-Nerd/icml26-steindiff-contractivity-stabilization",
+    "former_repository": "icml26-repro-z0CHTAHame-steindiff-contractivity-trap",
+    "branch": "main",
+    "branches": ["main"]
+  },
+  "phase": "standardized_audit_dossier_ready",
+  "next_action": "normalize_history_and_publish_dossier",
   "active_run_ids": [],
   "completed_milestones": [
     "live_duplicate_gate",
@@ -11,7 +17,10 @@
     "claim_1_source_cpu_feasibility_audit",
     "claim_1_attempt_1_reference_free_stein_estimator_fixture",
     "claim_2_attempt_1_source_faithful_stepwise_error_decay_fixture",
-    "readme_claim_ledger_and_branch_inventory"
+    "readme_claim_ledger_and_branch_inventory",
+    "standardized_audit_dossier",
+    "claim_evidence_source_environment_report_branch_citation_thank_you_docs",
+    "final_verifier_added"
   ],
   "failed_attempts": [],
   "claim_attempt_counts": {
@@ -22,9 +31,18 @@
     "5": 0,
     "6": 0
   },
-  "last_checkpoint": "2026-08-12T23:45:00+05:30",
-  "last_known_git_commit": "1c46f01",
+  "last_checkpoint": "2026-08-19",
+  "last_known_git_commit": "374e5d3",
   "publication_allowed": false,
+  "overall_verdict": "INCONCLUSIVE_SCOPED_TO_SOURCE_AND_BOUNDED_TOYS",
+  "claim_statuses": {
+    "C1": "TOY_SOURCE_STEIN_IDENTITY",
+    "C2": "TOY_SOURCE_STEPWISE_DECAY_ALGEBRA",
+    "C3": "UNVERIFIED_PAPER_REPORTED_ONLY",
+    "C4": "UNVERIFIED_PAPER_REPORTED_ONLY",
+    "C5": "SOURCE_SUPPORTED_IMPLEMENTATION_UNVERIFIED",
+    "C6": "SOURCE_SUPPORTED_BENCHMARK_UNVERIFIED"
+  },
   "compute_policy": "local CPU/local GTX 1050 only; no HF cpu-upgrade, Jobs, paid, or remote compute",
   "selection_rationale": "Anchored six-claim contract; pinned arXiv source directly supplies the closed-form Stein identity estimator and deterministic local CPU formula fixtures. Image-generation FID claims are deferred as non-CPU-feasible full benchmarks.",
   "claim_1_outcome": {

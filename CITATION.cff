@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "SteinDiff: Claim-by-Claim Reproduction Audit"
+message: "If this audit is useful, please cite the paper and the audit repository."
+type: software
+authors:
+  - family-names: Li
+    given-names: Shigui
+  - family-names: Zeng
+    given-names: Delu
+repository-code: https://github.com/MachineLearning-Nerd/icml26-steindiff-contractivity-stabilization
+url: https://arxiv.org/abs/2606.07835
+date-released: 2026-08-19
+keywords:
+  - diffusion models
+  - Stein identity
+  - ODE sampling
+  - reproduction audit
+

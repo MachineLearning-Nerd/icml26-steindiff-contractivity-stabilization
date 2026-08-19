@@ -1,6 +1,7 @@
 """Finite 1-D diagnostic of the exact Theorem 4.8 step-wise MSE identity.
 This is a reduced formula fixture, not SteinDiff model inference or a theorem proof.
 """
+import argparse
 import csv, hashlib, json, math, random
 from pathlib import Path
 
@@ -63,13 +64,14 @@ def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main():
-    OUT.mkdir(parents=True, exist_ok=True)
+def main(out=OUT):
+    out = Path(out)
+    out.mkdir(parents=True, exist_ok=True)
     data = run()
     protocol = """Pre-execution Claim-2 toy protocol\n
 Source: Theorem 4.8, example_paper.tex lines 534-633.  Fixed before run: seed=20260802; n=50000 paired 1-D particles; N=4; lambda=.35; candidate noise SD=.25. At each step T(x)=x-lambda*(x-x*)+xi, u=x-T(x), and gamma*=mean(u*(x-x*))/mean(u^2). Primary metrics are the theorem one-step identity E_{k-1}=E_k-b_k^2/c_k, trajectory product, and eta bound. Controls report gamma=1 (vanilla) and -gamma* (wrong-sign), on the same particle/candidate-noise draws. Pass iff every finite-sample identity error <=1e-12, product error <=1e-12, all c_k>0 and 0<=rho_k<=1, and eta bound holds. This is a finite synthetic formula fixture: it is not a learned diffusion model, Algorithm-1 estimator, image/FID result, or universal theorem verification.\n"""
-    (OUT / "PROTOCOL.md").write_text(protocol)
-    with (OUT / "results.csv").open("w", newline="") as f:
+    (out / "PROTOCOL.md").write_text(protocol)
+    with (out / "results.csv").open("w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=data["rows"][0].keys())
         writer.writeheader(); writer.writerows(data["rows"])
     summary = {k: v for k, v in data.items() if k != "rows"}
@@ -78,13 +80,15 @@ Source: Theorem 4.8, example_paper.tex lines 534-633.  Fixed before run: seed=20
                        all(r["c_k"] > 0 and 0 <= r["rho_k"] <= 1 for r in data["rows"]))
     summary["verdict"] = "toy"
     summary["scope"] = "Finite 1-D paired-particle execution of Theorem-4.8 algebra with a synthetic noisy affine candidate; not end-to-end SteinDiff or theorem verification."
-    (OUT / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+    (out / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     locations = """# Claim 2 source mapping
 
 Pinned `evidence/source/arxiv_source.tar.gz`, `example_paper.tex` lines 534-633, defines `u_k=x_k-T_theta(x_k)`, `b_k=E[<u_k,x_k-x*>]`, `c_k=E[||u_k||^2]`, `gamma*_k=b_k/c_k`, the one-step identity, `rho_k`, trajectory product, and eta bound. `src/claim2_stepwise_decay_toy.py` directly computes those quantities from paired synthetic particles. The fixture intentionally uses a synthetic noisy affine candidate, so it cannot establish the theorem for learned diffusion solvers.\n"""
-    (OUT / "SOURCE_MAPPING.md").write_text(locations)
+    (out / "SOURCE_MAPPING.md").write_text(locations)
     files = ["PROTOCOL.md", "SOURCE_MAPPING.md", "results.csv", "summary.json"]
-    (OUT / "SHA256SUMS").write_text("".join(f"{sha256(OUT / name)}  {name}\n" for name in files))
+    (out / "SHA256SUMS").write_text("".join(f"{sha256(out / name)}  {name}\n" for name in files))
 
 if __name__ == "__main__":
-    main()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default=str(OUT))
+    main(ap.parse_args().out)

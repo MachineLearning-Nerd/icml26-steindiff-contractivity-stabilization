@@ -1,6 +1,6 @@
 # Status
 
-Last documentation checkpoint: 2026-08-12.
+Last documentation checkpoint: 2026-08-19.
 
 - OpenReview ID: z0CHTAHame; submission 2615.
 - Paper: Mitigating the Contractivity Trap in Diffusion ODEs via Stein Stabilization.
@@ -11,6 +11,7 @@ Last documentation checkpoint: 2026-08-12.
 - Compute: local CPU/local GTX 1050 only; no HF CPU upgrade, Jobs, paid, or remote compute.
 - Branches: main only; no orx or stale legacy branch is present.
 - Intended normalized repository name: icml26-steindiff-contractivity-stabilization.
+- Standardized dossier: `CLAIM_EVIDENCE.md`, `SOURCE_AUDIT.md`, `ENVIRONMENT.md`, `REPORT.md`, `BRANCH_AUDIT.md`, `CITATION.cff`, `AUTHOR_THANK_YOU.md`, `claims.json`, `reproduction_verdicts.json`, `EVIDENCE_MANIFEST.json`, and `verify_final.py`.
 
 ## Claim status
 

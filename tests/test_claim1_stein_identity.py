@@ -1,6 +1,26 @@
-import json,subprocess,sys
+import json
+import subprocess
+import sys
+import tempfile
+import unittest
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
-def test_stein_identity_fixture():
- subprocess.run([sys.executable,'src/claim1_stein_identity_toy.py'],cwd=ROOT,check=True)
- d=json.loads((ROOT/'outputs/claim1_attempt1/summary.json').read_text());assert d['pass'] and d['absolute_difference']<.01
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+class TestSteinIdentityFixture(unittest.TestCase):
+    def test_stein_identity_fixture(self):
+        with tempfile.TemporaryDirectory() as directory:
+            subprocess.run(
+                [sys.executable, "src/claim1_stein_identity_toy.py", "--out", directory],
+                cwd=ROOT,
+                check=True,
+            )
+            summary = json.loads((Path(directory) / "summary.json").read_text())
+            self.assertTrue(summary["pass"])
+            self.assertLess(summary["absolute_difference"], 0.01)
+
+
+if __name__ == "__main__":
+    unittest.main()

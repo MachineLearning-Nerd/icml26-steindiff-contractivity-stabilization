@@ -12,6 +12,23 @@ This repository is an independent, source-pinned audit. It is not the authors' i
 - Pinned paper source and PDF: [evidence/source](evidence/source/)
 - Intended normalized repository name: icml26-steindiff-contractivity-stabilization
 
+## Audit dossier
+
+| Document | Purpose |
+| --- | --- |
+| [CLAIM_EVIDENCE.md](CLAIM_EVIDENCE.md) | Six claim production paths, local evidence, and boundaries |
+| [SOURCE_AUDIT.md](SOURCE_AUDIT.md) | Pinned paper/source audit and author-code boundary |
+| [ENVIRONMENT.md](ENVIRONMENT.md) | Local compute policy and reproduction limits |
+| [REPORT.md](REPORT.md) | Short verdict and next checkpoint |
+| [BRANCH_AUDIT.md](BRANCH_AUDIT.md) | Branch, history, and MachineLearning-Nerd attribution audit |
+| [CITATION.cff](CITATION.cff) | Machine-readable citation metadata |
+| [AUTHOR_THANK_YOU.md](AUTHOR_THANK_YOU.md) | Thank-you note to the authors |
+| [claims.json](claims.json) / [reproduction_verdicts.json](reproduction_verdicts.json) | Machine-readable claim statuses |
+| [EVIDENCE_MANIFEST.json](EVIDENCE_MANIFEST.json) | Hash manifest for the audit evidence |
+| [verify_final.py](verify_final.py) | Fail-closed final repository gate |
+
+Run `python3 verify_final.py` from the repository root to check the published state. A passing gate does not upgrade a toy or paper-reported claim.
+
 The pinned LaTeX source does not contain an author-code or project URL. A GitHub search for the title, method name, and author names did not identify a separate public implementation. The claims below therefore distinguish paper-source inspection from an author-code reproduction.
 
 ## What the paper does
@@ -152,8 +169,8 @@ There are no orx, experiment, or stale legacy branches in the current remote inv
 
 To inspect the existing toys:
 
-    python src/claim1_stein_identity_toy.py
-    python src/claim2_stepwise_decay_toy.py
+    python3 src/claim1_stein_identity_toy.py --out /tmp/steindiff-claim1-check
+    python3 src/claim2_stepwise_decay_toy.py --out /tmp/steindiff-claim2-check
 
 These commands reproduce the reduced fixtures only. They should not be described as reproducing the paper's image-generation experiments.
 
@@ -161,10 +178,17 @@ These commands reproduce the reduced fixtures only. They should not be described
 
 The source archive and PDF are verified through evidence/source/SHA256SUMS:
 
+    sha256sum -c evidence/source/SHA256SUMS
+
     392b56425f9c7f9e1275c79e971573268637eb384eb3bcb140293259ee100229  evidence/source/arxiv_source.tar.gz
     96b980d93196b1441ec30ec2ec0f695fdde075d8f96dcd39851e181836bd0ca3  evidence/source/arxiv.pdf
 
-The toy outputs are independently hashed in their respective SHA256SUMS files. A claim is not promoted from toy or source-supported to reproduced unless its complete production path and output artifacts are independently checked.
+The toy outputs are independently hashed in their respective SHA256SUMS files:
+
+    (cd outputs/claim1_attempt1 && sha256sum -c SHA256SUMS)
+    (cd outputs/claim2_attempt1 && sha256sum -c SHA256SUMS)
+
+A claim is not promoted from toy or source-supported to reproduced unless its complete production path and output artifacts are independently checked.
 
 ## Reproduction boundary
 
